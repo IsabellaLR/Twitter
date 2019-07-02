@@ -1,9 +1,14 @@
 package com.codepath.apps.restclienttemplate.models;
 
+import android.text.format.DateUtils;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Tweet {
+import java.io.Serializable;
+import java.util.Locale;
+
+public class Tweet implements Serializable {
 
     //list out attributes
     public String body;

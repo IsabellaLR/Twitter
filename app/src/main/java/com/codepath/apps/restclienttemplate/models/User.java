@@ -4,7 +4,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 
     //list attributes
     public String name;
@@ -20,7 +22,7 @@ public class User {
         user.name = json.getString("name");
         user.uid = json.getLong("id");
         user.screenName = json.getString("screen_name");
-        user.profileImageUrl = json.getString("profile_image_url");
+        user.profileImageUrl = json.getString("profile_image_url_https");
 
         return user;
     }
