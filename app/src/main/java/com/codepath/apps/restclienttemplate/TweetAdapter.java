@@ -1,6 +1,8 @@
 package com.codepath.apps.restclienttemplate;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +10,7 @@ import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,6 +42,17 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         return viewHolder;
     }
 
+    // Clean all elements of the recycler
+    public void clear() {
+        mTweets.clear();
+        notifyDataSetChanged();
+    }
+
+    // Add a list of items -- change to type used
+    public void addAll(List<Tweet> list) {
+        mTweets.addAll(list);
+        notifyDataSetChanged();
+    }
 
     public String getRelativeTimeAgo(String rawJsonDate) {
         String twitterFormat = "EEE MMM dd HH:mm:ss ZZZZZ yyyy";
@@ -62,11 +76,20 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         //get the data according to the position
-        Tweet tweet = mTweets.get(position);
+        final Tweet tweet = mTweets.get(position);
         //populate the views according to the data
         holder.tvUsername.setText(tweet.user.name);
         holder.tvBody.setText(tweet.body);
         holder.createdAgo.setText(getRelativeTimeAgo(tweet.createdAt));
+        holder.reply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // handle click here
+                Intent i = new Intent(context, ComposeActivity.class);
+                i.putExtra("name", tweet.user.screenName);
+                ((Activity) context).startActivityForResult(i, 20);
+            }
+        });
 
         Glide.with(context).load(tweet.user.profileImageUrl).into(holder.ivProfileImage);
     }
@@ -83,6 +106,9 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         public TextView tvUsername;
         public TextView tvBody;
         public TextView createdAgo;
+        public ImageView reply;
+        public Button btnThread;
+        public boolean setThread;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -93,6 +119,13 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             tvUsername = (TextView) itemView.findViewById(R.id.tvUserName);
             tvBody = (TextView) itemView.findViewById(R.id.tvBody);
             createdAgo = (TextView) itemView.findViewById(R.id.tvTime);
+            reply = (ImageView) itemView.findViewById(R.id.reply);
+            btnThread = (Button) itemView.findViewById(R.id.btnThread);
+            if (setThread) {
+                btnThread.setVisibility(View.VISIBLE);
+            }else{
+                btnThread.setVisibility(View.GONE);
+            }
         }
     }
 }
