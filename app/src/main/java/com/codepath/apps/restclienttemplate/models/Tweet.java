@@ -15,6 +15,7 @@ public class Tweet implements Serializable {
     public long uid;
     public User user;
     public String createdAt;
+    public String image;
 //    public Boolean setThread;
 
     //deserialize JSON
@@ -26,7 +27,7 @@ public class Tweet implements Serializable {
         tweet.uid = jsonObject.getLong("id");
         tweet.createdAt = jsonObject.getString("created_at");
         tweet.user = User.fromJSON(jsonObject.getJSONObject("user"));
-//        tweet.setThread = jsonObject.getBoolean("setThread");
+//        tweet.image = jsonObject.getString("media");
         return tweet;
     }
 }

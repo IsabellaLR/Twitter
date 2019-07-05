@@ -81,12 +81,14 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         holder.tvUsername.setText(tweet.user.name);
         holder.tvBody.setText(tweet.body);
         holder.createdAgo.setText(getRelativeTimeAgo(tweet.createdAt));
+//        holder.image.setImage?
         holder.reply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // handle click here
-                Intent i = new Intent(context, ComposeActivity.class);
+                Intent i = new Intent(context, ReplyActivity.class);
                 i.putExtra("name", tweet.user.screenName);
+                i.putExtra("uid", tweet.uid);
                 ((Activity) context).startActivityForResult(i, 20);
             }
         });
@@ -107,8 +109,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         public TextView tvBody;
         public TextView createdAgo;
         public ImageView reply;
-        public Button btnThread;
-        public boolean setThread;
+        public ImageView image;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -120,12 +121,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             tvBody = (TextView) itemView.findViewById(R.id.tvBody);
             createdAgo = (TextView) itemView.findViewById(R.id.tvTime);
             reply = (ImageView) itemView.findViewById(R.id.reply);
-            btnThread = (Button) itemView.findViewById(R.id.btnThread);
-            if (setThread) {
-                btnThread.setVisibility(View.VISIBLE);
-            }else{
-                btnThread.setVisibility(View.GONE);
-            }
+//            image = (ImageView) itemView.findViewById(R.id.image);
         }
     }
 }
