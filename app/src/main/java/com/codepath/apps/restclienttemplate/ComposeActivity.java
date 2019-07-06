@@ -37,7 +37,7 @@ public class ComposeActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Post Tweet");
 
         client = TwitterApp.getRestClient(getApplicationContext());
-        name = (TextView) findViewById(R.id.tvName);
+//        name = (TextView) findViewById(R.id.tvName);
 //        String username = "@"+ getIntent().getStringExtra("name");
 
         //1 - pass data back

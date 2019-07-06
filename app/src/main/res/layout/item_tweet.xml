@@ -25,7 +25,7 @@
         app:srcCompat="@android:color/background_dark" />
 
     <TextView
-        android:id="@+id/tvUserName"
+        android:id="@+id/tvUserName3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@id/tvBody"
@@ -40,12 +40,14 @@
         android:id="@+id/tvBody"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvUserName"
+        android:layout_below="@id/tvUserName3"
         android:layout_alignBottom="@+id/ivProfileImage"
         android:layout_marginStart="10dp"
         android:text="TextView"
+        android:autoLink="all"
+        android:linksClickable="true"
         app:layout_constraintStart_toEndOf="@+id/ivProfileImage"
-        app:layout_constraintTop_toBottomOf="@+id/tvUserName" />
+        app:layout_constraintTop_toBottomOf="@+id/tvUserName3" />
 
     <TextView
         android:id="@+id/tvTime"
@@ -54,7 +56,7 @@
         android:layout_marginEnd="8dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvUserName" />
+        app:layout_constraintTop_toTopOf="@+id/tvUserName3" />
 
     <ImageView
         android:id="@+id/reply"
@@ -94,15 +96,5 @@
         app:layout_constraintStart_toEndOf="@+id/retweet"
         app:layout_constraintTop_toBottomOf="@+id/tvBody"
         app:srcCompat="@android:drawable/star_off" />
-
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/star"
-        app:layout_constraintTop_toBottomOf="@+id/tvBody"
-        app:srcCompat="@android:color/background_dark" />
 
 </android.support.constraint.ConstraintLayout>

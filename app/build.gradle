@@ -32,6 +32,7 @@ android {
 
 dependencies {
 
+    implementation "android.arch.paging:runtime:1.0.1"
     implementation 'org.parceler:parceler-api:1.1.12'
     annotationProcessor 'org.parceler:parceler:1.1.12'
     implementation fileTree(dir: 'libs', include: '*.jar')

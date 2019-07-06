@@ -21,7 +21,7 @@ import cz.msebera.android.httpclient.Header;
 public class ReplyActivity extends AppCompatActivity {
 
     EditText description;
-    TextView name;
+//    TextView name;
     private TwitterClient client;
     long uid;
 
@@ -32,7 +32,7 @@ public class ReplyActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Reply to Tweet");
 
         client = TwitterApp.getRestClient(getApplicationContext());
-        name = (TextView) findViewById(R.id.tvName2);
+//        name = (TextView) findViewById(R.id.tvName2);
         String username = "@"+ getIntent().getStringExtra("name") + " ";
 
         //1 - pass data back
@@ -54,22 +54,6 @@ public class ReplyActivity extends AppCompatActivity {
                 super.onSuccess(statusCode, headers, response);
 
                 finish();
-                // Prepare data intent
-//                Intent data = new Intent();
-//                // Pass relevant data back as a result
-//                // Activity finished ok, return the data
-//                // set result code and bundle data for response
-//                //sendTweet
-//                Tweet tweet = null;
-//                try {
-//                    tweet = Tweet.fromJSON((response));
-//                    data.putExtra("tweet", Parcels.wrap(tweet));
-////                    data.putExtra("setThread", setThread);
-//                    setResult(RESULT_OK, data);
-//                    finish(); // closes the activity, pass data to parent
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
             }
 
             @Override

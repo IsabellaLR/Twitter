@@ -16,7 +16,6 @@ public class Tweet implements Serializable {
     public User user;
     public String createdAt;
     public String image;
-//    public Boolean setThread;
 
     //deserialize JSON
     public static Tweet fromJSON(JSONObject jsonObject) throws JSONException {

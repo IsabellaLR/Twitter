@@ -3,14 +3,11 @@ package com.codepath.apps.restclienttemplate;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -89,6 +86,21 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
                 Intent i = new Intent(context, ReplyActivity.class);
                 i.putExtra("name", tweet.user.screenName);
                 i.putExtra("uid", tweet.uid);
+                i.putExtra("profile", tweet.image);
+                i.putExtra("url", tweet.user.profileImageUrl);
+                ((Activity) context).startActivityForResult(i, 20);
+            }
+        });
+
+        holder.tvBody.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // handle click here
+                Intent i = new Intent(context, DetailsActivity.class);
+                i.putExtra("name", tweet.user.screenName);
+                i.putExtra("uid", tweet.uid);
+                i.putExtra("description", tweet.body);
+//                i.putExtra("profile", tweet.image);
                 ((Activity) context).startActivityForResult(i, 20);
             }
         });
@@ -117,11 +129,11 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             //perform findViewById lookups
 
             ivProfileImage = (ImageView) itemView.findViewById(R.id.ivProfileImage);
-            tvUsername = (TextView) itemView.findViewById(R.id.tvUserName);
+            tvUsername = (TextView) itemView.findViewById(R.id.tvUserName3);
             tvBody = (TextView) itemView.findViewById(R.id.tvBody);
             createdAgo = (TextView) itemView.findViewById(R.id.tvTime);
             reply = (ImageView) itemView.findViewById(R.id.reply);
-//            image = (ImageView) itemView.findViewById(R.id.image);
+            image = (ImageView) itemView.findViewById(R.id.image);
         }
     }
 }

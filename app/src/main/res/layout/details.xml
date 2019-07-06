@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    style="@style/Theme.AppCompat.Transparent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0020A7FF">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="358dp"
+        android:layout_height="291dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.497"
+        tools:context=".DetailsActivity">
+
+        <TextView
+        android:id="@+id/tvUserName3"
+            android:textColor="#000000"
+            android:background="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/ivProfileImage3"
+        app:layout_constraintTop_toTopOf="@+id/ivProfileImage3" />
+
+        <ImageView
+            android:id="@+id/ivProfileImage3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/hackers" />
+
+        <TextView
+            android:id="@+id/tvBody3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF"
+            android:text="TextView"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/ivProfileImage3"
+            app:layout_constraintTop_toBottomOf="@+id/tvUserName3" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:textColor="#000000"
+            android:background="#FFFFFF"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintStart_toEndOf="@+id/ivProfileImage3"
+            app:layout_constraintTop_toBottomOf="@+id/ivProfileImage3"
+            app:srcCompat="@drawable/reply" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:textColor="#000000"
+            android:background="#FFFFFF"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/ivProfileImage3"
+            app:srcCompat="@drawable/retweet" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:textColor="#000000"
+            android:background="#FFFFFF"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="100dp"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/ivProfileImage3"
+            app:srcCompat="@android:drawable/star_off" />
+
+    <ImageView
+        android:id="@+id/ivExit"
+        android:textColor="#000000"
+        android:background="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="exit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
